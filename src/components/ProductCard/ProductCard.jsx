@@ -1,0 +1,1 @@
+// passing all props ie Service name,Price,Product etc,add to chart button,checkout button to give you a list of item in the chart you selected
