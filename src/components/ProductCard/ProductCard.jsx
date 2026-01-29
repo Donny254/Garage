@@ -1,15 +1,17 @@
 // passing all props ie Service name,Price,Product etc,add to chart button,checkout button to give you a list of item in the chart you 
 
 
-
 import { useContext } from "react";
 import UserContext from "../UserContext.jsx";
 
 function ProductCard({ item }) {
   const { total, setTotal } = useContext(UserContext);
 
+  // Determine the numeric value for this item
+  const itemAmount = item.price ?? item.amount ?? 0;
+
   const handleConfirm = () => {
-    setTotal(total + item.amount); // for products use price instead
+    setTotal(total + itemAmount);
     alert("Confirmed");
   };
 
@@ -17,11 +19,12 @@ function ProductCard({ item }) {
     <div className="card">
       {item.image && <img src={item.image} alt={item.name} />}
       <h3>{item.name}</h3>
-      {item.description && <p>{item.description}</p>}
-      <p>Amount: {item.amount || item.price}</p>
+      {service.description && <p>{service.description}</p>}
+      <p>Amount: {serviceAmount}</p>
       <button onClick={handleConfirm}>Confirm</button>
     </div>
   );
 }
 
 export default ProductCard;
+
