@@ -31,7 +31,7 @@ function AboutUs() {
     <div className="page">
       <h1>About Us</h1>
       <p>
-        Blackline Garage is a full-service automotive garage offering the
+        group 8 Garage is a full-service automotive garage offering the
         following services:
       </p>
 

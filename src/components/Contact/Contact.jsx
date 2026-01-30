@@ -16,7 +16,7 @@ function Contact() {
     } else {
       const defaultContact = {
         phone: "+254 700 000 000",
-        email: "blacklinegarage@email.com",
+        email: "group8garage@gmail.com",
         location: "Nairobi, Kenya",
       };
 

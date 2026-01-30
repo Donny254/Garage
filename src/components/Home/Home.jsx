@@ -11,7 +11,7 @@ function Home() {
       setWelcomeMessage(savedMessage);
     } else {
       const defaultMessage =
-        "Welcome to Blackline Garage. We offer professional automotive repair and maintenance services.";
+        "Welcome to group 8 Garage. We offer professional automotive repair and maintenance services.";
       localStorage.setItem("welcomeMessage", defaultMessage);
       setWelcomeMessage(defaultMessage);
     }
@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <div className="page">
-      <h1>Blackline Garage</h1>
+      <h1>group 8 Garage</h1>
       <p>{welcomeMessage}</p>
     </div>
   );
