@@ -1,18 +1,48 @@
+import { useState, useEffect } from "react";
+import "./Home.css";
+
 function AboutUs() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    const storedServices = localStorage.getItem("garageServices");
+
+    if (storedServices) {
+      setServices(JSON.parse(storedServices));
+    } else {
+      const defaultServices = [
+        "Engine repairs",
+        "Brake services",
+        "Suspension work",
+        "Oil changes",
+        "Electrical diagnostics",
+        "General vehicle maintenance",
+      ];
+
+      localStorage.setItem(
+        "garageServices",
+        JSON.stringify(defaultServices)
+      );
+      setServices(defaultServices);
+    }
+  }, []);
+
   return (
-    <div>
+    <div className="page">
       <h1>About Us</h1>
       <p>
-        Garage is a full-service automotive garage offering engine
-        repairs, brake services, suspension work, oil changes, electrical
-        diagnostics, and general vehicle maintenance.
+        Blackline Garage is a full-service automotive garage offering the
+        following services:
       </p>
-      <p>
-        Our goal is to deliver reliable, affordable, and high-quality automotive
-        services to all our customers.
-      </p>
+
+      <ul>
+        {services.map((service, index) => (
+          <li key={index}>{service}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export default AboutUs;
+
