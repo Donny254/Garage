@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Home.css";
+
 
 function AboutUs() {
   const [services, setServices] = useState([]);
