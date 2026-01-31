@@ -2,7 +2,7 @@
 // use userContext to pass data
 import { useState } from 'react'
 import 'Service.css'
-import ProductCardList from './components/ProductCardList'
+import ProductCardList from '../ProductCardList/ProductCardList';
 
 
 function Service({ services }) {
@@ -60,7 +60,7 @@ function Service({ services }) {
         <>
 
             <div className='services'>
-                {services.map(ServiceCard => <Service key={service.id} service={service} />)}
+                {services.map(ServiceCard => <Service key={services.id} service={services} />)}
             </div>
         </>
     )
