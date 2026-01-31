@@ -47,7 +47,9 @@ function Store() {
                     <h1>Auto Parts Store</h1>
                     <p>Quality parts for your vehicle</p>
                 </div>
-                <SearchBar />
+                
+                    
+                <SearchBar/>
                 
                 <div className='items-disply'>
                     <ProductCardList products={products} />

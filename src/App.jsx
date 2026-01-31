@@ -27,7 +27,8 @@ function App() {
             <Route path='./Store' element={<Store />} />
 
           </Routes>
-          <InputForm/>
+         <InputForm/>
+
 
         </UserContext.Provider>
 
