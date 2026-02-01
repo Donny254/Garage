@@ -5,6 +5,7 @@ function Contact() {
       <h1>Contact Us</h1>
       <p>Email: garage@example.com</p>
       <p>Phone: +254 700 000 000</p>
+      <p>location : nairobi westlands</p>
     </div>
   );
 }
