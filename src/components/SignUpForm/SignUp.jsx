@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './SignUp.css';
 const endpoint = "http://localhost:3000/users";
 
 function SignupForm() {
