@@ -13,7 +13,7 @@ function Home() {
     <>
       {/* NAVBAR */}
       <nav className="navbar">
-        <h1>Group 8 Garage</h1>
+        <h1>GROUP 88 GARAGE</h1>
 
         <ul>
           <li onClick={() => setCurrentPage("Home")}>
