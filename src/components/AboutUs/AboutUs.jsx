@@ -1,48 +1,28 @@
 import { useState, useEffect } from "react";
 
-
 function AboutUs() {
-  const [services, setServices] = useState([]);
+  const [aboutInfo, setAboutInfo] = useState("");
 
   useEffect(() => {
-    const storedServices = localStorage.getItem("garageServices");
+    const savedAbout = localStorage.getItem("group8_about");
 
-    if (storedServices) {
-      setServices(JSON.parse(storedServices));
+    if (savedAbout) {
+      setAboutInfo(savedAbout);
     } else {
-      const defaultServices = [
-        "Engine repairs",
-        "Brake services",
-        "Suspension work",
-        "Oil changes",
-        "Electrical diagnostics",
-        "General vehicle maintenance",
-      ];
+      const defaultAbout =
+        "Group 8 Garage is a professional automotive company offering vehicle servicing, engine diagnostics, repairs, inspections, and maintenance. Our goal is to provide reliable and affordable garage services.";
 
-      localStorage.setItem(
-        "garageServices",
-        JSON.stringify(defaultServices)
-      );
-      setServices(defaultServices);
+      localStorage.setItem("group8_about", defaultAbout);
+      setAboutInfo(defaultAbout);
     }
   }, []);
 
   return (
-    <div className="page">
-      <h1>About Us</h1>
-      <p>
-        group 8 Garage is a full-service automotive garage offering the
-        following services:
-      </p>
-
-      <ul>
-        {services.map((service, index) => (
-          <li key={index}>{service}</li>
-        ))}
-      </ul>
-    </div>
+    <section>
+      <h2>About Us</h2>
+      <p>{aboutInfo}</p>
+    </section>
   );
 }
 
 export default AboutUs;
-

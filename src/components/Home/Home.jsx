@@ -1,29 +1,44 @@
-import { useState, useEffect } from "react";
+
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import AboutUs from "./AboutUs";
+import Contact from "./Contact";
 import "./Home.css";
 
 function Home() {
-  const [welcomeMessage, setWelcomeMessage] = useState("");
-
-  useEffect(() => {
-    const savedMessage = localStorage.getItem("welcomeMessage");
-
-    if (savedMessage) {
-      setWelcomeMessage(savedMessage);
-    } else {
-      const defaultMessage =
-        "Welcome to group 8 Garage. We offer professional automotive repair and maintenance services.";
-      localStorage.setItem("welcomeMessage", defaultMessage);
-      setWelcomeMessage(defaultMessage);
-    }
-  }, []);
+  const [currentPage, setCurrentPage] = useState("Home");
 
   return (
-    <div className="page">
-      <h1>group 8 Garage</h1>
-      <p>{welcomeMessage}</p>
-    </div>
+    <>
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <h1>Group 8 Garage</h1>
+
+        <ul>
+          <li onClick={() => setCurrentPage("Home")}>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li onClick={() => setCurrentPage("Services")}>
+            <Link to="/services">Services</Link>
+          </li>
+
+          <li onClick={() => setCurrentPage("Store")}>
+            <Link to="/store">Store</Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* PAGE CONTENT */}
+      <main className="page">
+        <p className="status">Current Page: {currentPage}</p>
+
+        <AboutUs />
+        <Contact />
+      </main>
+    </>
   );
 }
 
 export default Home;
-

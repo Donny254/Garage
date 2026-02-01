@@ -1,40 +1,27 @@
 import { useState, useEffect } from "react";
-import "./Home.css";
 
 function Contact() {
-  const [contactInfo, setContactInfo] = useState({
-    phone: "",
-    email: "",
-    location: "",
-  });
+  const [contactDetails, setContactDetails] = useState("");
 
   useEffect(() => {
-    const storedContact = localStorage.getItem("contactInfo");
+    const savedContact = localStorage.getItem("group8_contact");
 
-    if (storedContact) {
-      setContactInfo(JSON.parse(storedContact));
+    if (savedContact) {
+      setContactDetails(savedContact);
     } else {
-      const defaultContact = {
-        phone: "+254 700 000 000",
-        email: "group8garage@gmail.com",
-        location: "Nairobi, Kenya",
-      };
+      const defaultContact =
+        "Contact Group 8 Garage on +254 700 000 000 orwrite and email to group8garage@gmail.com or visit us in WESTLANDS Nairobi, Kenya.";
 
-      localStorage.setItem(
-        "contactInfo",
-        JSON.stringify(defaultContact)
-      );
-      setContactInfo(defaultContact);
+      localStorage.setItem("group8_contact", defaultContact);
+      setContactDetails(defaultContact);
     }
   }, []);
 
   return (
-    <div className="page">
-      <h1>Contact Us</h1>
-      <p>Phone: {contactInfo.phone}</p>
-      <p>Email: {contactInfo.email}</p>
-      <p>Location: {contactInfo.location}</p>
-    </div>
+    <section>
+      <h2>Contact</h2>
+      <p>{contactDetails}</p>
+    </section>
   );
 }
 
