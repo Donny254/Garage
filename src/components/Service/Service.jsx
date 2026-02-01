@@ -1,11 +1,11 @@
 // use userContext to pass data
 // use userContext to pass data
 import { useState } from 'react'
-import 'Service.css'
-import ProductCardList from './components/ProductCardList'
+import './Service.css'
 
 
-function Service({ services }) {
+
+function Service() {
 
    function ServiceCard({ service }) {
     return (
@@ -60,7 +60,7 @@ function Service({ services }) {
         <>
 
             <div className='services'>
-                {services.map(ServiceCard => <Service key={service.id} service={service} />)}
+                {services.map(service => <ServiceCard key={services.id} service={services} />)}
             </div>
         </>
     )

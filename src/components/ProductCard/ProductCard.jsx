@@ -2,7 +2,7 @@
 
 
 import { useContext } from "react";
-import UserContext from "../UserContext.jsx";
+import UserContext from "../../UserContext.jsx";
 
 function ProductCard({ item }) {
   const { total, setTotal } = useContext(UserContext);
