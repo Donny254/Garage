@@ -4,6 +4,7 @@ import DarkMode from './components/DarkMode/DarkMode'
 import InputForm from './components/InputForm/inputForm'
 import ProductCard from './components/ProductCard/ProductCard'
 import ProductCardList from './components/ProductCardList/ProductCardList'
+import Home from './components/Home/Home'
 
 
 // links all functional components
