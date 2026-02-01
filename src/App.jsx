@@ -1,10 +1,14 @@
 import { useState, UserContext } from 'react'
 import { Route, Routes, BrowserRouter, Link } from 'react-router-dom'
 import DarkMode from './components/DarkMode/DarkMode'
-import InputForm from './components/InputForm/inputForm'
+import SignupForm from './components/SignUpForm/SignUp'
 import ProductCard from './components/ProductCard/ProductCard'
 import ProductCardList from './components/ProductCardList/ProductCardList'
 import Home from './components/Home/Home'
+import Service from './components/Service/Service'
+import Store from './components/Store/Store'
+import About from './components/AboutUs/AboutUs'
+import Contact from './components/Contact/Contact'
 
 
 // links all functional components
@@ -28,7 +32,7 @@ function App() {
             <Route path='./Store' element={<Store />} />
 
           </Routes>
-         <InputForm/>
+         <SignupForm/>
 
 
         </UserContext.Provider>
