@@ -53,7 +53,14 @@ function Service() {
                 id: 5,
                 name: "Lights n Sound ",
                 image: "https://imgs.search.brave.com/I5ZBarBLJP9Ozp15zoA3x6p68UDOamIDm4tZoKyu61o/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5zaHV0dGVyc3Rv/Y2suY29tL2ltYWdl/LXBob3RvL21vZGVy/bi1jYXItaGVhZGxp/Z2h0LXR1cm5lZC1v/bi0yNjBudy0yNTI2/NDkwMDg5LmpwZw",
-                description: "Restore or upgrade youur lights n sound from the best "
+                description: "Restore or upgrade youur lights for a clearer vision when driving  "
+            }
+               ,
+            {
+                id: 6,
+                name: "Sound ",
+                image: "https://imgs.search.brave.com/uthEAgDefYeC2mGhQ9wGZxrPqGkgaRdmE_PZc2WKQHo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE1/NDg5MzIwNS9waG90/by9jYXItYXVkaW8t/c3lzdGVtLXNwZWFr/ZXJzLWluLXRoZS1v/cGVuZWQtZG9vci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/cHJweWhtemFQc29E/YXdyWi1Hc18ySG1Z/TGNCNWtxS1J3SzY0/YnA3Z3h6RT0",
+                description: "Get the best Sound dydtem for you  "
             }
         ]
     )
