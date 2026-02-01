@@ -1,78 +1,66 @@
-// use userContext to pass data
-// use userContext to pass data
-import { useState } from 'react'
-import './Service.css'
-import ProductCardList from '../ProductCardList/ProductCardList';
-import ProductCard from '../ProductCard/ProductCard';
-
-
+import { useState, useContext } from "react";
+import UserContext from "../../UserContext.jsx";
+import ProductCardList from "../ProductCardList/ProductCardList.jsx";
+import SearchBar from "../SearchBar/SearchBar.jsx";
+import "./Service.css";
 
 function Service() {
+  const { total, setTotal } = useContext(UserContext);
+  
+  const [services] = useState([
+    {
+      id: 1,
+      name: "Painting",
+      image: "https://imgs.search.brave.com/ehnUuhSUT0Rk4Ri8lktwUMPrVQrCbzMn2UzoG6TkpgM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE2Lzc1LzI5Lzc5/LzM2MF9GXzE2NzUy/OTc5OTZfQzNBaTB3/UUU5SzZaUVdrbm91/NGNvRWR6ams5R3N0/bXouanBn",
+      description: "Get the best Painting work for your car",
+      amount: 5000 // Add amount for consistency
+    },
+    {
+      id: 2,
+      name: "Body Restoration",
+      image: "https://imgs.search.brave.com/juGTJl0Qf17W3usk4I2OKhGloie8PdwbKGF-QTgdiPY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ5/Njg1MTQwMS9waG90/by9hdXRvLW1lY2hh/bmljLXN0cmFpZ2h0/ZW5pbmctY2FyLWJv/ZHktaW4tY2FyLXNl/cnZpY2Utc3RhdGlv/bi53ZWJwP2E9MSZi/PTEmcz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/Wkl3U3Fjc1ZWQVBa/LVZKOFFqUGZ0UGs5/ZDVDVmo4TEpSUlVj/bEM3SUNfdz0",
+      description: "Damaged car? worry less!",
+      amount: 15000
+    },
+    {
+      id: 3,
+      name: "Detail Cleaning",
+      image: "https://imgs.search.brave.com/EIa1xf666aFJ3RfOy3gxe9CBFqMTe2v5fahTjYyq1jw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvNjg3/MzE4NS9wZXhlbHMt/cGhvdG8tNjg3MzE4/NS5qcGVnP2F1dG89/Y29tcHJlc3MmY3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA",
+      description: "Get that fresh new look from us",
+      amount: 3000
+    },
+    {
+      id: 4,
+      name: "Engine",
+      image: "https://imgs.search.brave.com/rsZ9ORJ2jNAYsbrOGhfgHJOxxWAtRhTrozGkBtEEgsY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIw/MDk1MTE2MS9waG90/by9lbmdpbmUtcGlz/dG9uLXJlcGFpci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/NEhqTHE3Z0lXZEJ0/U2RqLVFrT29jQ2hh/OHRUblN0ZWN2RHZf/bVdrOFZhWT0",
+      description: "Engine issues or want an upgrade?",
+      amount: 20000
+    }
+  ]);
 
-   function ServiceCard({ service }) {
-    return (
-      <div className="service-card">
-        <img
-          src={service.image}
-          alt={service.name}
-          className="service-image"
-        />
-        <h3>{service.name}</h3>
-        <p>{service.description}</p>
+  // ADD SEARCH STATE ✅
+  const [search, setSearch] = useState("");
+  
+  // Filter services based on search ✅
+  const filteredServices = services.filter(service =>
+    service.name.toLowerCase().includes(search.toLowerCase()) ||
+    service.description.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="service">
+      <div className="service-header">
+        <h1>Auto Services</h1>
+        <p>Professional care for your vehicle</p>
       </div>
-    );
-  }
-    const [services] = useState(
-        [
-            {
-                id: 1,
-                name: "Painting ",
-                image: "https://imgs.search.brave.com/ehnUuhSUT0Rk4Ri8lktwUMPrVQrCbzMn2UzoG6TkpgM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE2Lzc1LzI5Lzc5/LzM2MF9GXzE2NzUy/OTc5OTZfQzNBaTB3/UUU5SzZaUVdrbm91/NGNvRWR6ams5R3N0/bXouanBn",
-                description: "Get the best Painting work for your car "
-            },
-            {
-                id: 2,
-                name: "Body Restoration",
-                image: "https://imgs.search.brave.com/juGTJl0Qf17W3usk4I2OKhGloie8PdwbKGF-QTgdiPY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ5/Njg1MTQwMS9waG90/by9hdXRvLW1lY2hh/bmljLXN0cmFpZ2h0/ZW5pbmctY2FyLWJv/ZHktaW4tY2FyLXNl/cnZpY2Utc3RhdGlv/bi53ZWJwP2E9MSZi/PTEmcz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/Wkl3U3Fjc1ZWQVBa/LVZKOFFqUGZ0UGs5/ZDVDVmo4TEpSUlVj/bEM3SUNfdz0",
-                description: "Damaged Car worry less"
-            },
-            {
-                id: 3,
-                name: "Detail Cleaning ",
-                image: "https://imgs.search.brave.com/EIa1xf666aFJ3RfOy3gxe9CBFqMTe2v5fahTjYyq1jw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvNjg3/MzE4NS9wZXhlbHMt/cGhvdG8tNjg3MzE4/NS5qcGVnP2F1dG89/Y29tcHJlc3MmY3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA",
-                description: " Get that fresh new look from us "
-            },
-            {
-                id: 4,
-                name: "Engine",
-                image: "https://imgs.search.brave.com/rsZ9ORJ2jNAYsbrOGhfgHJOxxWAtRhTrozGkBtEEgsY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIw/MDk1MTE2MS9waG90/by9lbmdpbmUtcGlz/dG9uLXJlcGFpci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/NEhqTHE3Z0lXZEJ0/U2RqLVFrT29jQ2hh/OHRUblN0ZWN2RHZf/bVdrOFZhWT0",
-                description: "Engine issues or wanna upgrade it "
-            }
-            ,
-            {
-                id: 5,
-                name: "Lights n Sound ",
-                image: "https://imgs.search.brave.com/I5ZBarBLJP9Ozp15zoA3x6p68UDOamIDm4tZoKyu61o/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZS5zaHV0dGVyc3Rv/Y2suY29tL2ltYWdl/LXBob3RvL21vZGVy/bi1jYXItaGVhZGxp/Z2h0LXR1cm5lZC1v/bi0yNjBudy0yNTI2/NDkwMDg5LmpwZw",
-                description: "Restore or upgrade youur lights for a clearer vision when driving  "
-            }
-               ,
-            {
-                id: 6,
-                name: "Sound ",
-                image: "https://imgs.search.brave.com/uthEAgDefYeC2mGhQ9wGZxrPqGkgaRdmE_PZc2WKQHo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE1/NDg5MzIwNS9waG90/by9jYXItYXVkaW8t/c3lzdGVtLXNwZWFr/ZXJzLWluLXRoZS1v/cGVuZWQtZG9vci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/cHJweWhtemFQc29E/YXdyWi1Hc18ySG1Z/TGNCNWtxS1J3SzY0/YnA3Z3h6RT0",
-                description: "Get the best Sound dydtem for you  "
-            }
-        ]
-    )
-
-    return (
-        <>
-
-            <div className='services'>
-                {services.map(service => <ServiceCard key={services.id} service={services} />)}
-            </div>
-        </>
-    )
+      {/* ADD SEARCH BAR ✅ */}
+      <SearchBar setSearch={setSearch} />
+      <div className="items-display">
+        {/* USE ProductCardList instead of custom ServiceCard ✅ */}
+        <ProductCardList customItems={filteredServices} />
+      </div>
+    </div>
+  );
 }
 
-export default Service
+export default Service;

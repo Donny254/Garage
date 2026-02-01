@@ -1,3 +1,10 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "de5a",
+      "username": "dw",
+      "email": "dwaachira@gmail.com",
+      "password": "@Frgikpw3ZwnF3Le"
+    }
+  ]
 }
