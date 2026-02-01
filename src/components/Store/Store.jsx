@@ -46,8 +46,7 @@ function Store() {
                 <div className="store-header">
                     <h1>Auto Parts Store</h1>
                     <p>Quality parts for your vehicle</p>
-                </div>
-                
+                </div>                
                     
                 <SearchBar/>
                 
