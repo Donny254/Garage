@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import UserContext from "./UserContext.jsx";
-
-import DarkMode from "./components/DarkMode/DarkMode";
 import SignupForm from "./components/SignUpForm/SignUp";
 import ProductCard from "./components/ProductCard/ProductCard";
 import ProductCardList from "./components/ProductCardList/ProductCardList";
@@ -12,6 +10,9 @@ import Store from "./components/Store/Store";
 import About from "./components/AboutUs/AboutUs";
 import Contact from "./components/Contact/Contact";
 import './App.css';
+
+
+
 function App() {
   // Shared state for user and total bookings/purchases
   const [user, setUser] = useState("ken");
