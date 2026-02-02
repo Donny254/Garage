@@ -1,11 +1,15 @@
+import useContact from "../../hooks/useContact";
 
 function Contact() {
+  const { phone, email, location } = useContact();
+
   return (
     <div>
-      <h1>Contact Us</h1>
-      <p>Email: garage@example.com</p>
-      <p>Phone: +254 700 000 000</p>
-      <p>location : nairobi westlands</p>
+      <h2>Contact Us</h2>
+
+      <p><strong>Phone:</strong> {phone}</p>
+      <p><strong>Email:</strong> {email}</p>
+      <p><strong>Location:</strong> {location}</p>
     </div>
   );
 }
