@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 function DarkMode({ darkMode, setDarkMode }) {
   return (
     <button onClick={() => setDarkMode(!darkMode)}>
-      {darkMode ? "Light Mode" : "Dark Mode"}
+      {darkMode ? "Dark Mode" : "Light Mode"}
     </button>
   );
 }

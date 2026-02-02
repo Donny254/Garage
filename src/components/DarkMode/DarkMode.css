@@ -1,0 +1,9 @@
+.dark .card {
+  background: #060607;
+  color: #565d69;
+}
+
+.dark body {
+  background: hsl(228, 100%, 1%);
+}
+
